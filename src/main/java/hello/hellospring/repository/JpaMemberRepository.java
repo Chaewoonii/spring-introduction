@@ -41,7 +41,7 @@ public class JpaMemberRepository implements MemberRepository{
     public List<Member> findAll() {
         // jpql: 보통 쿼리는 테이블을 대상으로 날림. jpql은 객체를 대상으로 쿼리를 날리면 sql로 번역됨
         // select m from Member (*as 생략됨) m: Member를 대상으로 조회해
-        // m: sql 이었으면 * 이나 m.id, m.name 등 컬럼을 선택해야하는데, jpsl은 객체 자체를 선택함.
+        // m: sql 이었으면 * 이나 m.id, m.name 등 컬럼을 선택해야하는데, jpql은 객체 자체를 선택함.
         return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
     }
